@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piso WiFi Pause Time: What It Is and How to Use It</title>
+<meta name="description" content="Learn what Piso WiFi pause time is, how to pause and resume your session at 10.0.0.1, and what to do when the Pause button is missing.">
+<link rel="canonical" href="https://pisowifi-pause.com/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f4b52e' stroke='%230a2540' stroke-width='4'/%3E%3Cg fill='none' stroke='%230a2540' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M15 25a24 24 0 0 1 34 0'/%3E%3Cpath d='M21.5 31.5a15 15 0 0 1 21 0'/%3E%3Cpath d='M27.5 37.5a6 6 0 0 1 9 0'/%3E%3C/g%3E%3Ccircle cx='32' cy='45' r='3.2' fill='%230a2540'/%3E%3C/svg%3E">
+<meta property="og:title" content="Piso WiFi Pause Time: What It Is and How to Use It">
+<meta property="og:description" content="Freeze your remaining minutes and continue later. Full guide to Piso WiFi pause time.">
+<meta property="og:url" content="https://pisowifi-pause.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Does pausing use my paid balance?","acceptedAnswer":{"@type":"Answer","text":"No. Your remaining time stays untouched while the session is paused."}},
+{"@type":"Question","name":"Can I resume on a different phone?","acceptedAnswer":{"@type":"Answer","text":"No. Sessions are tied to the device that started them."}},
+{"@type":"Question","name":"What happens if I close my browser while paused?","acceptedAnswer":{"@type":"Answer","text":"Nothing. Your time is stored on the machine, so just reopen the portal to resume."}},
+{"@type":"Question","name":"Can I leave a session paused for days?","acceptedAnswer":{"@type":"Answer","text":"It is not recommended. Many machines expire paused sessions after a set limit, often within 24 hours."}},
+{"@type":"Question","name":"Why won't the portal open?","acceptedAnswer":{"@type":"Answer","text":"Check that you are on the right network, turn off any VPN, and type the address manually instead of searching for it."}}]}
+</script>
+<style>
+:root{
+  --ink:#0a2540; --blue:#0f64ad; --blue-d:#0a4a83; --sky:#e4f0fa; --paper:#f5f9fd; --coin:#f4b52e; --coin-d:#c98d0d; --line:#c9dbec; --mute:#4a6580;
+  --head:"Bricolage Grotesque","Trebuchet MS",Arial,sans-serif;
+  --body:"Newsreader",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.75}
+a{color:var(--blue-d);text-underline-offset:3px;text-decoration-thickness:1.5px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:3px solid var(--coin);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(245,249,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 22px;max-width:1080px;margin:0 auto;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--head);font-weight:800;font-size:1.1rem;letter-spacing:-.01em}
+.brand .logo{width:40px;height:40px;display:block;flex:none}
+header nav{display:flex;gap:8px;flex-wrap:wrap}
+header nav a{font-family:var(--head);font-weight:700;font-size:.9rem;text-decoration:none;color:var(--ink);padding:8px 16px;border-radius:999px;border:2px solid var(--ink);background:#fff;box-shadow:3px 3px 0 var(--ink);transition:transform .12s,box-shadow .12s,background .12s}
+header nav a:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);background:var(--coin);color:var(--ink)}
+header nav a.hot{background:var(--coin)}
+header nav a.hot:hover{background:#fff}
+
+/* hero */
+.hero{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 88% 20%,transparent 0 46px,rgba(255,255,255,.07) 46px 48px);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;padding-top:64px;padding-bottom:72px;position:relative}
+.hero h1{font-family:var(--head);font-weight:800;font-size:clamp(2.3rem,5.4vw,3.9rem);line-height:1.04;letter-spacing:-.03em;margin:0 0 20px}
+.hero p.lead{font-size:1.2rem;line-height:1.6;margin:0 0 26px;max-width:34em;color:#e7f2fb}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--head);font-weight:700;text-decoration:none;padding:13px 24px;border-radius:999px;border:2px solid var(--ink);background:var(--coin);color:var(--ink);box-shadow:4px 4px 0 var(--ink);display:inline-block;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);color:var(--ink)}
+.btn.alt{background:#fff}
+
+/* timer demo */
+.meter{background:var(--ink);border-radius:26px;padding:26px;border:3px solid #fff;box-shadow:8px 8px 0 rgba(0,0,0,.28);text-align:center}
+.meter small{font-family:var(--head);font-size:.85rem;color:#9cc4e6;display:block;margin-bottom:6px}
+.clock{font-family:var(--head);font-weight:800;font-size:clamp(3rem,7vw,4.4rem);font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1;color:var(--coin);transition:color .2s}
+.meter.paused .clock{color:#7fd0ff;animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.45}}
+.state{font-family:var(--head);font-weight:600;margin:10px 0 18px;color:#cfe3f4;min-height:1.6em}
+.meter button{font-family:var(--head);font-weight:700;font-size:1rem;cursor:pointer;padding:12px 26px;border-radius:999px;border:2px solid #fff;background:var(--coin);color:var(--ink);box-shadow:3px 3px 0 #fff;transition:transform .1s,box-shadow .1s}
+.meter button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #fff}
+.meter .note{font-size:.85rem;color:#8fb3d1;margin:16px 0 0;line-height:1.4;font-family:var(--head)}
+
+/* article */
+main{padding:60px 0 20px}
+.grid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:56px}
+aside .toc{position:sticky;top:96px;font-family:var(--head);font-size:.92rem}
+aside h2{font-size:1rem;margin:0 0 10px;color:var(--mute);font-weight:700}
+aside ul{list-style:none;margin:0;padding:0;border-left:3px solid var(--line)}
+aside li a{display:block;padding:6px 14px;margin-left:-3px;border-left:3px solid transparent;text-decoration:none;color:var(--ink);font-weight:500;line-height:1.35}
+aside li a:hover,aside li a.on{border-left-color:var(--blue);color:var(--blue);font-weight:700}
+article{max-width:690px}
+article h2{font-family:var(--head);font-weight:800;font-size:1.75rem;line-height:1.15;letter-spacing:-.02em;margin:54px 0 14px;color:var(--ink)}
+article h2:first-of-type{margin-top:0}
+article p,article li{margin:0 0 16px}
+.intro{font-size:1.28rem;line-height:1.65;border-left:6px solid var(--coin);padding-left:20px;margin-bottom:34px}
+.steps{list-style:none;padding:0;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding:18px 20px 6px 72px;background:#fff;border:2px solid var(--ink);border-radius:18px;margin-bottom:14px;box-shadow:4px 4px 0 var(--line)}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:38px;height:38px;border-radius:50%;background:var(--coin);border:2px solid var(--ink);font-family:var(--head);font-weight:800;display:grid;place-items:center}
+.tips{padding-left:0;list-style:none}
+.tips li{padding-left:34px;position:relative}
+.tips li::before{content:"";position:absolute;left:4px;top:.6em;width:16px;height:16px;border-radius:50%;background:var(--coin);border:2px solid var(--ink)}
+code,.addr{font-family:var(--head);font-weight:700;background:var(--sky);padding:2px 8px;border-radius:8px;font-size:.92em;color:var(--blue-d);white-space:nowrap}
+.callout{background:var(--sky);border:2px solid var(--blue);border-radius:18px;padding:20px 24px 6px;margin:26px 0}
+.callout p:first-child{font-family:var(--head);font-weight:800;margin-bottom:8px}
+
+/* faq */
+details{background:#fff;border:2px solid var(--ink);border-radius:16px;margin-bottom:12px;overflow:hidden}
+summary{cursor:pointer;list-style:none;padding:16px 56px 16px 20px;font-family:var(--head);font-weight:700;position:relative;line-height:1.35}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--coin);border:2px solid var(--ink);display:grid;place-items:center;font-size:1.1rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+details[open] summary{background:var(--sky)}
+details p{padding:14px 20px 0;margin:0 0 14px}
+
+/* explore + footer */
+.explore{margin:70px 0 0;background:var(--ink);color:#fff;border-radius:28px;padding:36px}
+.explore h2{font-family:var(--head);margin:0 0 8px;font-size:1.6rem;letter-spacing:-.02em}
+.explore p{color:#b9d3e8;margin:0 0 20px}
+.explore .cta a{background:#fff}
+.explore .cta a:hover{background:var(--coin)}
+footer{margin-top:70px;background:#fff;border-top:1px solid var(--line);padding:38px 0;font-family:var(--head);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+footer .brand{margin-bottom:8px}
+footer p{margin:0;color:var(--mute);font-family:var(--body);font-size:.95rem;line-height:1.5;max-width:26em}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer a{text-decoration:none;font-weight:600}
+footer a:hover{text-decoration:underline}
+
+/* icons add */
+footer h3{display:flex;align-items:center;gap:8px}
+footer h3 .i{width:20px;height:20px}
+.fbase span{display:inline-flex;align-items:center;gap:8px}
+
+/* v3 */
+.coin svg{width:100%;height:100%;display:block}
+.explore{position:relative;overflow:hidden}
+.explore>*{position:relative}
+.explore .mark{position:absolute;right:28px;top:50%;width:150px;height:150px;transform:translateY(-50%) rotate(-10deg);opacity:.95}
+@media(max-width:860px){.explore .mark{display:none}.coin{width:74px;height:74px;top:-34px}}
+/* v2 */
+.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+header nav a,.btn{display:inline-flex;align-items:center;gap:8px}
+.prog{position:absolute;left:0;bottom:-1px;height:4px;width:0;background:linear-gradient(90deg,var(--blue),var(--coin));transition:width .1s linear}
+.hero .wrap>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero .wrap>*:nth-child(2){animation-delay:.15s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.stage{position:relative}
+.coin{position:absolute;top:-46px;right:-18px;width:96px;height:96px;animation:bob 4s ease-in-out infinite;z-index:2;filter:drop-shadow(4px 4px 0 var(--ink))}
+@keyframes bob{50%{transform:translateY(-9px) rotate(6deg)}}
+.chip{position:absolute;left:-14px;bottom:-20px;z-index:2;display:flex;align-items:center;gap:8px;background:#fff;color:var(--ink);font-family:var(--head);font-weight:700;font-size:.9rem;padding:9px 16px;border-radius:999px;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:-40px;position:relative;z-index:3}
+.fact{background:#fff;border:2px solid var(--ink);border-radius:20px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;box-shadow:5px 5px 0 var(--ink)}
+.ico{flex:none;width:46px;height:46px;border-radius:14px;background:var(--coin);border:2px solid var(--ink);display:grid;place-items:center}
+.ico .i{width:24px;height:24px}
+.fact b{font-family:var(--head);display:block;line-height:1.25;margin-bottom:3px}
+.fact span:not(.ico){font-size:.95rem;line-height:1.45;color:var(--mute);display:block}
+.explore .btn{background:#fff}
+.explore .btn:hover{background:var(--coin)}
+footer{position:relative;overflow:hidden;background:var(--ink);color:#fff;border-top:0;padding:56px 0 24px}
+footer a{color:#fff}
+footer a:hover{color:var(--coin)}
+footer p{color:#b9d3e8}
+footer .brand{color:#fff}
+footer .btn{color:var(--ink);margin-top:18px}
+footer .btn:hover{color:var(--ink);background:#fff}
+.fdeco{position:absolute;right:-40px;top:-30px;width:320px;height:320px;stroke-width:1.2;opacity:.08;pointer-events:none}
+footer .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;position:relative}
+footer h3{font-family:var(--head);font-size:1rem;margin:0 0 14px;color:var(--coin)}
+footer li a{display:flex;align-items:center;gap:10px}
+.fi{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.1);display:grid;place-items:center;transition:background .15s}
+li a:hover .fi{background:var(--coin);color:var(--ink)}
+.fbase{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);font-size:.9rem;color:#9cc4e6;position:relative}
+.fbase a{display:inline-flex;align-items:center;gap:6px}
+.fab{position:fixed;right:18px;bottom:18px;z-index:30;width:48px;height:48px;border-radius:50%;background:var(--coin);color:var(--ink);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);display:grid;place-items:center;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .25s,transform .25s}
+.fab.show{opacity:1;transform:none;pointer-events:auto}
+.fab:hover{color:var(--ink);background:#fff}
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:44px;padding-bottom:52px}
+  .grid{grid-template-columns:1fr}
+  aside{display:none}
+  body{font-size:18px}
+  .facts{grid-template-columns:1fr;margin-top:-28px}
+  footer .fgrid{grid-template-columns:1fr}
+  .coin{right:-6px;width:66px;height:66px;top:-30px}
+  .chip{left:-6px}
+  header nav a{padding:7px 12px;font-size:.85rem}
+  .bar{justify-content:center}
+  header nav{justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="emblem" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#f4b52e" stroke="#0a2540" stroke-width="4"/><circle cx="32" cy="32" r="25" fill="none" stroke="#c98d0d" stroke-width="1.5" stroke-dasharray="3 3"/><g fill="none" stroke="#0a2540" stroke-width="4" stroke-linecap="round"><path d="M15 25a24 24 0 0 1 34 0"/><path d="M21.500 31.500a15 15 0 0 1 21 0"/><path d="M27.500 37.500a6 6 0 0 1 9 0"/></g><circle cx="32" cy="45" r="3.200" fill="#0a2540"/></symbol>
+<symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1.3" fill="currentColor"/></symbol>
+<symbol id="i-router" viewBox="0 0 24 24"><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 17h.01M11 17h.01M8 14 6 7M16 14l2-7"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.5 3.5 3.5 14.500 0 18M12 3c-3.5 3.5-3.5 14.500 0 18"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.500A2.500 2.500 0 0 1 6.500 3H20v15H6.500A2.500 2.500 0 0 0 4 20.500zM4 20.500A2.500 2.500 0 0 0 6.500 23H20M9 8h6"/></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+<symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3"/></symbol>
+<symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.500"/><path d="M12 9.500v5"/></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8M5 9.500V21h14V9.500"/></symbol>
+</defs></svg>
+
+<header>
+  <div class="prog" id="prog"></div>
+  <div class="bar">
+    <a class="brand" href="https://pisowifi-pause.com/"><svg class="logo" role="img" aria-label="Piso WiFi Pause logo"><use href="#emblem"/></svg>Piso WiFi Pause</a>
+    <nav aria-label="Main">
+      <a class="hot" href="https://pisowifi-pause.com/10-0-0-1/"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg>10.0.0.1</a>
+      <a href="https://pisowifi-pause.com/lpb-piso-wifi/"><svg class="i" aria-hidden="true"><use href="#i-router"/></svg>LPB Piso WiFi</a>
+      <a href="https://pisowifi-pause.com/category/piso-wifi/"><svg class="i" aria-hidden="true"><use href="#i-wifi"/></svg>Piso WiFi</a>
+      <a href="https://pisowifi-pause.com/category/piso-wifi-guides/"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Piso WiFi Guides</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Piso WiFi pause time: pay for the minutes you use</h1>
+      <p class="lead">Ever paid for an hour, stepped away for lunch, and came back to find your time nearly gone? Pause time freezes your balance so you can continue later. Here is how it works and how to use it.</p>
+      <div class="cta">
+        <a class="btn" href="https://pisowifi-pause.com/"><svg class="i" aria-hidden="true"><use href="#i-wifi"/></svg>Piso WiFi Pause Time</a>
+        <a class="btn alt" href="https://pisowifi-pause.com/10-0-0-1/"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg>Open portal guide</a>
+      </div>
+    </div>
+    <div class="stage">
+    <div class="coin" aria-hidden="true"><svg><use href="#emblem"/></svg></div>
+    <div class="meter" id="meter" aria-live="polite">
+      <small>Try it: your remaining time</small>
+      <div class="clock" id="clock">00:59:00</div>
+      <div class="state" id="state">Timer running</div>
+      <button id="toggle" type="button">Pause time</button>
+      <p class="note">A demo of the Pause button. Your real balance lives on the machine.</p>
+    </div>
+    <div class="chip"><svg class="i" aria-hidden="true"><use href="#i-router"/></svg>http://10.0.0.1</div>
+    </div>
+  </div>
+</section>
+
+<section class="facts wrap" aria-label="Quick facts">
+  <div class="fact"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-pause"/></svg></span><div><b>Freeze your balance</b><span>Tap Pause and nothing is deducted until you resume.</span></div></div>
+  <div class="fact"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg></span><div><b>Same device only</b><span>Your session is linked to your device's MAC address.</span></div></div>
+  <div class="fact"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-key"/></svg></span><div><b>Owner switches it on</b><span>Not every machine has the Pause button enabled.</span></div></div>
+</section>
+
+<main class="wrap">
+<div class="grid">
+<aside><nav class="toc" aria-label="On this page">
+  <h2>On this page</h2>
+  <ul>
+    <li><a href="#what">What is pause time?</a></li>
+    <li><a href="#how-works">How does it work?</a></li>
+    <li><a href="#how-to">Pause and resume</a></li>
+    <li><a href="#tips">Tips before you pause</a></li>
+    <li><a href="#no-button">No pause button?</a></li>
+    <li><a href="#owners">For owners</a></li>
+    <li><a href="#safe">Is it safe?</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</nav></aside>
+
+<article>
+<p class="intro">Ever paid for an hour of Piso WiFi, stepped away for lunch, and come back to find your time nearly gone? It happens to almost everyone. Piso WiFi pause time is the feature that fixes this. It lets you freeze your remaining minutes and continue later, so you only pay for the internet you actually use.</p>
+
+<h2 id="what">What Is Piso WiFi Pause Time?</h2>
+<p><a href="https://pisowifi-pause.com/category/piso-wifi/">Piso WiFi</a> is a coin-operated internet service found in sari-sari stores, dorms, terminals, and waiting areas across the Philippines. You insert a coin, or pay by GCash or Maya on newer machines, and receive a set amount of internet time.</p>
+<p>Normally that timer keeps running whether you are online or not. Pause time stops it. When you tap the Pause button, your remaining balance is saved and nothing is deducted until you choose to resume.</p>
+
+<h2 id="how-works">How Does It Work?</h2>
+<p>The saving happens on the machine itself, not on your phone. When you pause, the Piso WiFi server stores your leftover time and links it to your device's MAC address, which is a unique ID for your phone or laptop. This is why closing your browser or locking your screen does not erase your balance.</p>
+<p>It also explains why you must resume on the same device. A session paused on your phone cannot be continued on your laptop, because the machine only recognizes the original device.</p>
+
+<h2 id="how-to">How to Pause and Resume Your Session</h2>
+<ol class="steps">
+  <li><strong>Connect to the WiFi.</strong> Choose the Piso WiFi network from your phone's settings. Most are open and need no password.</li>
+  <li><strong>Open the portal.</strong> Type <a class="addr" href="https://pisowifi-pause.com/10-0-0-1/">http://10.0.0.1</a> directly into your browser's address bar. Do not search for it on Google.</li>
+  <li><strong>Start a session.</strong> Insert coins, enter a voucher code, or pay digitally, then wait for the timer to appear.</li>
+  <li><strong>Tap Pause Time.</strong> The button usually sits near the countdown. The timer freezes right away.</li>
+  <li><strong>Resume later.</strong> Reconnect on the same device, open the portal again, and tap Resume Time (some machines say "Continue"). Your countdown restarts from where it stopped.</li>
+</ol>
+
+<h2 id="tips">Important Tips Before You Pause</h2>
+<ul class="tips">
+  <li><strong>Pause first, then leave.</strong> Turning off WiFi or walking out of range does not stop the timer on most machines. Only the Pause button does.</li>
+  <li><strong>Use one device and one browser.</strong> Switching between them can cause problems with your saved balance.</li>
+  <li><strong>Do not wait too long.</strong> Many owners set a maximum pause duration, and paused time can expire after a day or less.</li>
+  <li><strong>Turn off your VPN.</strong> A VPN can stop the <a href="https://pisowifi-pause.com/10-0-0-1/">10.0.0.1</a> page from loading.</li>
+  <li><strong>On Android, disable mobile data and Private DNS</strong> if the portal will not open.</li>
+</ul>
+
+<h2 id="no-button">Why Is There No Pause Button?</h2>
+<p>Pause time is an optional setting, and the machine owner must switch it on. If you cannot see the button, it is most likely disabled. You cannot turn it on as a customer, but you can try these options:</p>
+<ul class="tips">
+  <li>Ask the shop owner to pause your session from the admin panel.</li>
+  <li>Buy a voucher and enter it only when you are ready to use it.</li>
+  <li>Top up in small amounts instead of buying a full hour.</li>
+</ul>
+<p>If the button exists but does not work, clear your browser cache or open the portal in an incognito tab.</p>
+
+<h2 id="owners">How Owners Can Enable Pause Time</h2>
+<div class="callout">
+  <p>Quick path for owners</p>
+  <p>If you run a Piso WiFi machine, enabling this feature is free and quick. Open <span class="addr">http://10.0.0.1/admin</span>, log in, go to Portal Settings, and turn on the Pause Time option. You can also set a maximum pause length. Save your changes and restart the machine if needed.</p>
+</div>
+<p>Menu names differ slightly between <a href="https://pisowifi-pause.com/lpb-piso-wifi/">LPB Piso WiFi</a>, AdoPiSoft, and PisoFi, so check your own panel.</p>
+<p>Customers appreciate not losing their minutes, and happy customers tend to return. Also remember to change the default admin password to keep your machine secure. More setup help is in our <a href="https://pisowifi-pause.com/category/piso-wifi-guides/">Piso WiFi guides</a>.</p>
+
+<h2 id="safe">Is Pause Time Safe and Reliable?</h2>
+<p>The feature itself is safe, but remember that public Piso WiFi networks are usually not encrypted. Avoid banking apps and sensitive logins while connected. Also note that on some machines a power cut or reboot can erase a paused session, since the data is stored locally. A few systems, such as PisoFi, back up sessions to the cloud, which offers better protection.</p>
+
+<h2>Final Thoughts</h2>
+<p>Piso WiFi pause time is a simple feature that saves real money. Connect, pay, pause when you step away, and resume on the same device. Check for the Pause button before you pay, since not every machine has it enabled. If you are an owner, turning it on takes only a few minutes.</p>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<details><summary>Does pausing use my paid balance?</summary><p>No. Your remaining time stays untouched while the session is paused.</p></details>
+<details><summary>Can I resume on a different phone?</summary><p>No. Sessions are tied to the device that started them.</p></details>
+<details><summary>What happens if I close my browser while paused?</summary><p>Nothing. Your time is stored on the machine, so just reopen the portal to resume.</p></details>
+<details><summary>Can I leave a session paused for days?</summary><p>It is not recommended. Many machines expire paused sessions after a set limit, often within 24 hours.</p></details>
+<details><summary>Why won't the portal open?</summary><p>Check that you are on the right network, turn off any VPN, and type the address manually instead of searching for it. Our <a href="https://pisowifi-pause.com/10-0-0-1/">10.0.0.1 guide</a> has more fixes.</p></details>
+</article>
+</div>
+
+<section class="explore">
+  <svg class="mark" aria-hidden="true"><use href="#emblem"/></svg>
+  <h2>Keep reading on Piso WiFi Pause</h2>
+  <p>Portal fixes, machine guides, and setup help in one place.</p>
+  <div class="cta">
+    <a class="btn" href="https://pisowifi-pause.com/10-0-0-1/"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg>10.0.0.1</a>
+    <a class="btn" href="https://pisowifi-pause.com/lpb-piso-wifi/"><svg class="i" aria-hidden="true"><use href="#i-router"/></svg>LPB Piso WiFi</a>
+    <a class="btn" href="https://pisowifi-pause.com/category/piso-wifi/"><svg class="i" aria-hidden="true"><use href="#i-wifi"/></svg>Piso WiFi</a>
+    <a class="btn" href="https://pisowifi-pause.com/category/piso-wifi-guides/"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Piso WiFi Guides</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <svg class="fdeco" aria-hidden="true"><use href="#i-wifi"/></svg>
+  <div class="wrap fgrid">
+    <div class="fbrand">
+      <a class="brand" href="https://pisowifi-pause.com/"><svg class="logo" aria-hidden="true"><use href="#emblem"/></svg>Piso WiFi Pause</a>
+      <p>Simple guides for using and managing Piso WiFi pause time, from the 10.0.0.1 portal to owner settings.</p>
+      <a class="btn" href="https://pisowifi-pause.com/"><svg class="i" aria-hidden="true"><use href="#i-coin"/></svg>Piso WiFi Pause Time</a>
+    </div>
+    <div><h3><svg class="i" aria-hidden="true"><use href="#i-home"/></svg>Pages</h3><ul>
+      <li><a href="https://pisowifi-pause.com/"><span class="fi"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg></span>Home</a></li>
+      <li><a href="https://pisowifi-pause.com/10-0-0-1/"><span class="fi"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg></span>10.0.0.1</a></li>
+      <li><a href="https://pisowifi-pause.com/lpb-piso-wifi/"><span class="fi"><svg class="i" aria-hidden="true"><use href="#i-router"/></svg></span>LPB Piso WiFi</a></li>
+    </ul></div>
+    <div><h3><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Categories</h3><ul>
+      <li><a href="https://pisowifi-pause.com/category/piso-wifi/"><span class="fi"><svg class="i" aria-hidden="true"><use href="#i-wifi"/></svg></span>Piso WiFi</a></li>
+      <li><a href="https://pisowifi-pause.com/category/piso-wifi-guides/"><span class="fi"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg></span>Piso WiFi Guides</a></li>
+    </ul></div>
+  </div>
+  <div class="wrap fbase"><span><svg class="i" aria-hidden="true"><use href="#i-coin"/></svg>&copy; 2026 <a href="https://pisowifi-pause.com/">pisowifi-pause.com</a>. All rights reserved.</span><a href="#top"><svg class="i" aria-hidden="true"><use href="#i-up"/></svg>Back to top</a></div>
+</footer>
+<a class="fab" id="fab" href="#top" aria-label="Back to top"><svg class="i" aria-hidden="true"><use href="#i-up"/></svg></a>
+
+<script>
+(function(){
+  var left=59*60, run=true, meter=document.getElementById('meter'),
+      clock=document.getElementById('clock'), state=document.getElementById('state'),
+      btn=document.getElementById('toggle');
+  function fmt(n){return (n<10?'0':'')+n}
+  function draw(){clock.textContent=fmt(Math.floor(left/3600))+':'+fmt(Math.floor(left%3600/60))+':'+fmt(left%60)}
+  setInterval(function(){ if(run && left>0){left--;draw()} },1000);
+  btn.addEventListener('click',function(){
+    run=!run;
+    meter.classList.toggle('paused',!run);
+    btn.textContent=run?'Pause time':'Resume time';
+    state.textContent=run?'Timer running':'Paused. Your balance is saved';
+  });
+  var prog=document.getElementById('prog'), fab=document.getElementById('fab');
+  function onScroll(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?h.scrollTop/m*100:0)+'%';fab.classList.toggle('show',h.scrollTop>700)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var links=document.querySelectorAll('.toc a'), secs=[];
+  links.forEach(function(a){var s=document.querySelector(a.getAttribute('href')); if(s) secs.push([a,s])});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(l){l.classList.remove('on')});
+        secs.forEach(function(p){ if(p[1]===e.target) p[0].classList.add('on') }) } });
+    },{rootMargin:'-20% 0px -70% 0px'});
+    secs.forEach(function(p){io.observe(p[1])});
+  }
+})();
+</script>
+</body>
+</html>
